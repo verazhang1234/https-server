@@ -4,12 +4,10 @@
 1. Clone this repository to your local machine
 2. Install dependencies：
 Ensure you have Node.js and npm installed. Run the command to install necessary dependencies: npm install
-3. SSL Certificates：
-For the server to run securely over HTTPS, you need SSL certificates.
-Place your key.pem and cert.pem files in the root of your project directory. These files are required for the server to handle HTTPS connections.
-4. Start the server在：
-Once all dependencies are installed and SSL certificates are in place, you can start the server using the command:node app.js
-Then the server will be running at https://localhost:3000.
+3. SSL Certificates
+- using OpenSSL, run the command: openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes
+4. Start the secure server: node server.js
+5. Open https://localhost:3000 in your browser.
 
 
 ## SSL configuration
@@ -26,11 +24,11 @@ https.createServer(options, app).listen(3000, () => {
     console.log("✅ Secure server running at https://localhost:3000");
 });
 ### Headers ###
-- Content Security Policy (CSP): Restricts which sources the browser can load resources from.
-- Frameguard: Prevents the site from being embedded in a frame (clickjacking prevention).
-- XSS Filter: Protects against cross-site scripting (XSS) attacks.
-- NoSniff: Prevents browsers from interpreting files as a different MIME type.
-- Referrer Policy: Controls the amount of information sent with requests, preventing potential privacy leaks.
+- Content Security Policy (CSP): Prevents XSS attacks
+- Strict-Transport-Security: Forces HTTPS
+- X-Frame-Options: Prevents clickjacking
+- X-Content-Type-Options: Prevents MIME sniffing
+- Referrer-Policy: Protects user privacy
 
 
 ## Caching Strategy for Routes
@@ -45,5 +43,7 @@ Improves performance, reduces server load, safe for caching.
 
 
 ## Lessons learned
-Self-signed certificates cause browser warnings
+- Challenge: Self-signed certificates cause browser warnings
 Solution: Manually trust the certificate
+- Challenge: Debugging Cannot GET /quests
+Solution: Added proper Express route definitions in server.js
