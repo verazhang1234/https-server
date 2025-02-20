@@ -1,13 +1,13 @@
 # https-server
 
-## **Setup Instructions**
-1.Clone this repository to your local machine
-2.Install dependencies
+## Setup Instructions
+1. Clone this repository to your local machine
+2. Install dependencies
 Ensure you have Node.js and npm installed. Run the command to install necessary dependencies: npm install
-3.SSL Certificates
+3. SSL Certificates
 For the server to run securely over HTTPS, you need SSL certificates.
 Place your key.pem and cert.pem files in the root of your project directory. These files are required for the server to handle HTTPS connections.
-4.Start the server
+4. Start the server
 Once all dependencies are installed and SSL certificates are in place, you can start the server using the command:node app.js
 Then the server will be running at https://localhost:3000.
 
