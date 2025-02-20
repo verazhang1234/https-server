@@ -1,6 +1,6 @@
 # https-server
 
-##Setup Instructions
+## Setup Instructions
 1.Clone this repository to your local machine
 2.Install dependencies
 Ensure you have Node.js and npm installed. Run the command to install necessary dependencies: npm install
@@ -12,7 +12,7 @@ Once all dependencies are installed and SSL certificates are in place, you can s
 Then the server will be running at https://localhost:3000.
 
 
-##SSL configuration
+## SSL configuration
 The application uses Helmet.js to set various security headers to protect against common web vulnerabilities
 The server uses HTTPS for secure communication. SSL certificates are required to run the server securely.
 The following code reads the SSL certificate files key.pem and cert.pem:
@@ -33,7 +33,7 @@ NoSniff: Prevents browsers from interpreting files as a different MIME type.
 Referrer Policy: Controls the amount of information sent with requests, preventing potential privacy leaks.
 
 
-##Caching Strategy for Routes
+## Caching Strategy for Routes
 /quests and /quests/:id : Cached for 5 minutes.
 Improves performance, reduces server load, safe for caching.
 /leaderboard: Cached for 10 minutes.
@@ -44,6 +44,6 @@ Security (no sensitive data cached), ensures fresh data for the user.
 Improves performance, reduces server load, safe for caching.
 
 
-##Lessons learned
+## Lessons learned
 Self-signed certificates cause browser warnings
 Solution: Manually trust the certificate
