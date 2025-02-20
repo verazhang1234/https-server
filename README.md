@@ -25,7 +25,7 @@ The server is then created using these certificates:
 https.createServer(options, app).listen(3000, () => {
     console.log("✅ Secure server running at https://localhost:3000");
 });
-###Headers###
+### Headers ###
 - Content Security Policy (CSP): Restricts which sources the browser can load resources from.
 - Frameguard: Prevents the site from being embedded in a frame (clickjacking prevention).
 - XSS Filter: Protects against cross-site scripting (XSS) attacks.
