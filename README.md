@@ -14,18 +14,18 @@ Then the server will be running at https://localhost:3000.
 
 ## SSL configuration
 - The application uses Helmet.js to set various security headers to protect against common web vulnerabilities.
-- The server uses HTTPS for secure communication. SSL certificates are required to run the server securely.
-- The following code reads the SSL certificate files key.pem and cert.pem:
+The server uses HTTPS for secure communication. SSL certificates are required to run the server securely.
+The following code reads the SSL certificate files key.pem and cert.pem:
 const options = {
     key: fs.readFileSync("key.pem"),
     cert: fs.readFileSync("cert.pem")
 };
 - Ensure that both the key.pem and cert.pem files are placed in the root directory of your project.
-- The server is then created using these certificates:
+The server is then created using these certificates:
 https.createServer(options, app).listen(3000, () => {
     console.log("✅ Secure server running at https://localhost:3000");
 });
-**Headers**
+###Headers###
 - Content Security Policy (CSP): Restricts which sources the browser can load resources from.
 - Frameguard: Prevents the site from being embedded in a frame (clickjacking prevention).
 - XSS Filter: Protects against cross-site scripting (XSS) attacks.
